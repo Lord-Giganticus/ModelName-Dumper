@@ -18,10 +18,11 @@ jobs:
     - uses: actions/checkout@v2
     - uses: actions/setup-python@v2
     - uses: carlosperate/download-file-action@v1.0.3
+      id: test
       with:
         file-url: ${{ secrets.TEST_STAGE_URL }}
         file-name: Test.szs
-        location: ${{ github.workspace }}
+    - run: echo ${{ steps.test.outputs.file-path }}
     - run: python Byml_Dumper.py
     - uses: actions/upload-artifact@v2.2.4
       with:
