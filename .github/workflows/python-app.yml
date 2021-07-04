@@ -19,7 +19,7 @@ jobs:
     - uses: actions/setup-python@v2
     - uses: carlosperate/download-file-action@v1.0.3
       with:
-        file-wrl: ${{ secrets.TEST_STAGE_URL }}
+        file-url: ${{ secrets.TEST_STAGE_URL }}
         file-name: Test.szs
         location: ${{ github.workspace }}
     - run: python Byml_Dumper.py
