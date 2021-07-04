@@ -1,0 +1,69 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Hack.io.YAZ0</name>
+    </assembly>
+    <members>
+        <member name="T:Hack.io.YAZ0.YAZ0">
+            <summary>
+            Class containing methods to compress and decompress Data into Yaz0
+            </summary>
+        </member>
+        <member name="M:Hack.io.YAZ0.YAZ0.Decompress(System.String)">
+            <summary>
+            Decompress a File
+            </summary>
+            <param name="Filename">Full path to the file</param>
+        </member>
+        <member name="M:Hack.io.YAZ0.YAZ0.Decompress(System.IO.MemoryStream)">
+            <summary>
+            Decompress a MemoryStream
+            </summary>
+            <param name="Data"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Hack.io.YAZ0.YAZ0.Decompress(System.Byte[])">
+            <summary>
+            Decompress a byte[]
+            </summary>
+            <param name="Data"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Hack.io.YAZ0.YAZ0.Compress(System.String,System.Boolean)">
+            <summary>
+            Compress a File
+            </summary>
+            <param name="Filename">File to compress</param>
+            <param name="Quick">If true, takes shorter time to compress, but is overall weaker then if disabled (resulting in larger files)</param>
+        </member>
+        <member name="M:Hack.io.YAZ0.YAZ0.Compress(System.IO.MemoryStream,System.Boolean)">
+            <summary>
+            Compress a MemoryStream
+            </summary>
+            <param name="YAZ0">MemoryStream to compress</param>
+            <param name="Quick">The Algorithm to use. True to use YAZ0 Fast</param>
+        </member>
+        <member name="M:Hack.io.YAZ0.YAZ0.Compress(System.Byte[],System.Boolean)">
+            <summary>
+            Compress a byte[]
+            </summary>
+            <param name="Data">The data to compress</param>
+            <param name="Quick">The Algorithm to use. True to use YAZ0 Fast</param>
+            <returns></returns>
+        </member>
+        <member name="M:Hack.io.YAZ0.YAZ0.Check(System.String)">
+            <summary>
+            Checks a given file for Yaz0 Encoding
+            </summary>
+            <param name="Filename">File to check</param>
+            <returns>true if the file is Yaz0 Encoded</returns>
+        </member>
+        <member name="M:Hack.io.YAZ0.YAZ0.DecompressToMemoryStream(System.String)">
+            <summary>
+            Converts a Yaz0 Encoded file to a Yaz0 Decoded MemoryStream
+            </summary>
+            <param name="Filename">The file to decode into a MemoryStream</param>
+            <returns>The decoded MemoryStream</returns>
+        </member>
+    </members>
+</doc>

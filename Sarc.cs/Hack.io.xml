@@ -1,0 +1,708 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Hack.io</name>
+    </assembly>
+    <members>
+        <member name="T:Hack.io.Util.Int24">
+            <summary>
+            I need this because Nintendo had this strange idea that using Int24 is OK
+            </summary>
+        </member>
+        <member name="F:Hack.io.Util.Int24.MaxValue">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:Hack.io.Util.Int24.MinValue">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:Hack.io.Util.Int24.BitMask">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Hack.io.Util.Int24.Value">
+            <summary>
+            The value of this Int24 as an Int32
+            </summary>
+        </member>
+        <member name="M:Hack.io.Util.Int24.#ctor(System.Int32)">
+            <summary>
+            Create a new Int24
+            </summary>
+            <param name="Value"></param>
+        </member>
+        <member name="M:Hack.io.Util.Int24.ToString">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Hack.io.Util.UInt24">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:Hack.io.Util.UInt24.BitMask">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Hack.io.Util.UInt24.Value">
+            <summary>
+            The value of this Int24 as an Int32
+            </summary>
+        </member>
+        <member name="M:Hack.io.Util.UInt24.#ctor(System.UInt32)">
+            <summary>
+            
+            </summary>
+            <param name="value"></param>
+        </member>
+        <member name="M:Hack.io.Util.UInt24.ToString">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Hack.io.Util.ListEx">
+            <summary>
+            Extra List functions
+            </summary>
+        </member>
+        <member name="M:Hack.io.Util.ListEx.ContainsSubsequence``1(System.Collections.Generic.IList{``0},System.Collections.Generic.IList{``0})">
+            <summary>
+            Finds out if a sequence exists in a list
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="sequence"></param>
+            <param name="subsequence"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Hack.io.Util.ListEx.SubListIndex``1(System.Collections.Generic.IList{``0},System.Int32,System.Collections.Generic.IList{``0})">
+            <summary>
+            Finds a list inside a list
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="list"></param>
+            <param name="start">The index to Start searching from</param>
+            <param name="sublist">The list to find</param>
+            <returns></returns>
+        </member>
+        <member name="M:Hack.io.Util.ListEx.Move``1(System.Collections.Generic.IList{``0},System.Int32,System.Int32)">
+            <summary>
+            Moves an item X distance in a list
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="list"></param>
+            <param name="OldIndex">The original index of the item</param>
+            <param name="NewIndex">The new index of the item</param>
+            <returns></returns>
+        </member>
+        <member name="M:Hack.io.Util.ListEx.SortBy``1(System.Collections.Generic.List{``0},``0[])">
+            <summary>
+            Sort a list of items based on an array of items
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="OriginalList"></param>
+            <param name="sortref">The list to reference while sorting</param>
+            <returns></returns>
+        </member>
+        <member name="T:Hack.io.Util.StringEx">
+            <summary>
+            Extra String functions
+            </summary>
+        </member>
+        <member name="M:Hack.io.Util.StringEx.WildCardToRegular(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="value"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Hack.io.Util.FileInfoEx">
+            <summary>
+            Extra FileInfo functions
+            </summary>
+        </member>
+        <member name="M:Hack.io.Util.FileInfoEx.IsFileLocked(System.IO.FileInfo)">
+            <summary>
+            Check if a file cannot be opened.
+            </summary>
+            <param name="file">File to check for</param>
+            <returns>If the file is locked, returns true.</returns>
+        </member>
+        <member name="T:Hack.io.Util.BitArrayEx">
+            <summary>
+            Extra BitArray functions
+            </summary>
+        </member>
+        <member name="M:Hack.io.Util.BitArrayEx.ToInt32(System.Collections.BitArray)">
+            <summary>
+            Converts this BitArray to an Int32
+            </summary>
+            <param name="array"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Hack.io.Util.BitConverterEx">
+            <summary>
+            Extra BitConverter functions
+            </summary>
+        </member>
+        <member name="M:Hack.io.Util.BitConverterEx.ToInt24(System.Byte[],System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="value"></param>
+            <param name="StartIndex"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Hack.io.Util.BitConverterEx.GetBytes(Hack.io.Util.Int24)">
+            <summary>
+            
+            </summary>
+            <param name="value"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Hack.io.Util.BitConverterEx.ToUInt24(System.Byte[],System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="value"></param>
+            <param name="StartIndex"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Hack.io.Util.BitConverterEx.GetBytes(Hack.io.Util.UInt24)">
+            <summary>
+            
+            </summary>
+            <param name="value"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Hack.io.Util.Benchmark">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Hack.io.Util.Benchmark.Span">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Hack.io.Util.Benchmark.Start">
+            <summary>
+            Starts the timer
+            </summary>
+        </member>
+        <member name="M:Hack.io.Util.Benchmark.End">
+            <summary>
+            Ends the Timer
+            </summary>
+        </member>
+        <member name="M:Hack.io.Util.Benchmark.GetSeconds">
+            <summary>
+            Gets the elapsed seconds
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Hack.io.Util.EncodingEx">
+            <summary>
+            Extra Encoding functions
+            </summary>
+        </member>
+        <member name="M:Hack.io.Util.EncodingEx.GetStride(System.Text.Encoding)">
+            <summary>
+            Gets the amount of bytes this Encoding uses
+            </summary>
+            <param name="enc"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Hack.io.Util.MathEx">
+            <summary>
+            Extra math functions
+            </summary>
+        </member>
+        <member name="M:Hack.io.Util.MathEx.Clamp``1(``0,``0,``0)">
+            <summary>
+            Clamps a value to the specified minimum and maximum value
+            </summary>
+            <typeparam name="T">IComparable</typeparam>
+            <param name="val">The value to clamp</param>
+            <param name="min">Minimum value to clamp to</param>
+            <param name="max">Maximum value to clamp to</param>
+            <returns>Max or Min, depending on Val</returns>
+        </member>
+        <member name="T:Hack.io.Util.BitmapEx">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Hack.io.Util.BitmapEx.ResizeImage(System.Drawing.Image,System.Int32,System.Int32,System.Drawing.Drawing2D.InterpolationMode)">
+            <summary>
+            Resize the image to the specified width and height.
+            </summary>
+            <param name="image">The image to resize.</param>
+            <param name="width">The width to resize to.</param>
+            <param name="height">The height to resize to.</param>
+            <param name="InterpolationMode"></param>
+            <returns>The resized image.</returns>
+        </member>
+        <member name="T:Hack.io.Util.GenericExtensions">
+            <summary>
+            Class full of odds and ends that don't belong to a certain group
+            </summary>
+        </member>
+        <member name="M:Hack.io.Util.GenericExtensions.SwapValues``1(``0@,``0@)">
+            <summary>
+            Swaps two values.
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="Left">Our first contestant</param>
+            <param name="Right">Our second contestant</param>
+        </member>
+        <member name="M:Hack.io.Util.GenericExtensions.SwapValues``1(System.Tuple{``0,``0}@)">
+            <summary>
+            Swaps two values using a Tuple
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="Values">The tuple to swap values of</param>
+        </member>
+        <member name="M:Hack.io.Util.GenericExtensions.CycleValues``1(System.Boolean,``0[])">
+            <summary>
+            Cycles an set of objects. Can be cycled backwards
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="Reverse">If true, cycles from left to right instead of right to left</param>
+            <param name="Values">The values to cycle</param>
+        </member>
+        <member name="M:Hack.io.Util.GenericExtensions.Clamp``1(``0,``0,``0)">
+            <summary>
+            Math.Clamp doesn't exist for whatever reason
+            </summary>
+            <param name="value">The value to clamp</param>
+            <param name="min">The Minimum value</param>
+            <param name="max">The Maximum value</param>
+            <returns></returns>
+        </member>
+        <member name="T:Hack.io.FileStreamEx">
+            <summary>
+            Extension of the <see cref="T:System.IO.FileStream"/> designed for Big Endian
+            </summary>
+        </member>
+        <member name="M:Hack.io.FileStreamEx.Read(System.IO.FileStream,System.Int32,System.Int32)">
+            <summary>
+            Reads a block of bytes from the stream and writes the data in a given buffer (For Little Endian)
+            </summary>
+            <param name="FS">This</param>
+            <param name="Offset">The byte offset in array at which the read bytes will be placed.</param>
+            <param name="Count">The maximum number of bytes to read.</param>
+            <returns>The total number of bytes read into the buffer. This might be less than the number of bytes requested if that number of bytes are not currently available, or zero if the end of the stream is reached.</returns>
+            <exception cref="T:System.ArgumentOutOfRangeException">Offset or Count is negative.</exception>
+            <exception cref="T:System.NotSupportedException">The stream does not support reading.</exception>
+            <exception cref="T:System.IO.IOException">An I/O error occurred.</exception>
+            <exception cref="T:System.ArgumentException">Offset and Count describe an invalid range in array.</exception>
+            <exception cref="T:System.ObjectDisposedException">Methods were called after the stream was closed.</exception>
+        </member>
+        <member name="M:Hack.io.FileStreamEx.ReadReverse(System.IO.FileStream,System.Int32,System.Int32)">
+            <summary>
+            Reads a block of bytes from the stream and writes the data in a given buffer... but Backwards! (For Big Endian)
+            </summary>
+            <param name="FS">This</param>
+            <param name="Offset">The byte offset in array at which the read bytes will be placed.</param>
+            <param name="Count">The maximum number of bytes to read.</param>
+            <returns>The total number of bytes read into the buffer. This might be less than the number of bytes requested if that number of bytes are not currently available, or zero if the end of the stream is reached.</returns>
+            <exception cref="T:System.ArgumentOutOfRangeException">Offset or Count is negative.</exception>
+            <exception cref="T:System.NotSupportedException">The stream does not support reading.</exception>
+            <exception cref="T:System.IO.IOException">An I/O error occurred.</exception>
+            <exception cref="T:System.ArgumentException">Offset and Count describe an invalid range in array.</exception>
+            <exception cref="T:System.ObjectDisposedException">Methods were called after the stream was closed.</exception>
+        </member>
+        <member name="M:Hack.io.FileStreamEx.WriteReverse(System.IO.FileStream,System.Byte[],System.Int32,System.Int32)">
+            <summary>
+            Writes a block of bytes to the file stream... but Backwards! (For Big Endian)
+            </summary>
+            <param name="FS">This</param>
+            <param name="Array">The buffer containing data to write to the stream</param>
+            <param name="Offset">The zero-based byte offset in array from which to begin copying bytes to the stream</param>
+            <param name="Count">The maximum number of bytes to write</param>
+            <exception cref="T:System.ArgumentNullException">array is null.</exception>
+            <exception cref="T:System.ArgumentException">offset and count describe an invalid range in array.</exception>
+            <exception cref="T:System.ArgumentOutOfRangeException">offset or count is negative</exception>
+            <exception cref="T:System.IO.IOException">An I/O error occurred, or Another thread may have caused an unexpected change in the position of the operating system's file handle</exception>
+            <exception cref="T:System.ObjectDisposedException">The stream is closed</exception>
+            <exception cref="T:System.NotSupportedException">The current stream instance does not support writing</exception>
+        </member>
+        <member name="M:Hack.io.FileStreamEx.ReadString(System.IO.FileStream)">
+            <summary>
+            Reads a String from the file. Strings are terminated by 0x00. <para/> The decoded string is in SHIFT-JIS
+            </summary>
+            <param name="FS"></param>
+            <returns>Complete String</returns>
+        </member>
+        <member name="M:Hack.io.FileStreamEx.ReadString(System.IO.FileStream,System.Int32)">
+            <summary>
+            Reads a String from the file. String length is determined by the "<paramref name="StringLength"/>" parameter. <para/> The decoded string is in SHIFT-JIS
+            </summary>
+            <param name="FS"></param>
+            <param name="StringLength">Length of the string to read. Cannot be longer than the <see cref="P:System.IO.FileStream.Length"/></param>
+            <returns>Complete String</returns>
+        </member>
+        <member name="M:Hack.io.FileStreamEx.ReadString(System.IO.FileStream,System.Text.Encoding)">
+            <summary>
+            Reads a String from the file. Strings are terminated by 0x00. <para/> The decoded string is defined by the "<paramref name="Encoding"/>" Parameter.
+            </summary>
+            <param name="FS"></param>
+            <param name="Encoding">Encoding to use when getting the string</param>
+            <returns>Complete String</returns>
+        </member>
+        <member name="M:Hack.io.FileStreamEx.ReadString(System.IO.FileStream,System.Int32,System.Text.Encoding)">
+            <summary>
+            Reads a String from the file. String length is determined by the "<paramref name="StringLength"/>" parameter. <para/> The decoded string is defined by the "<paramref name="Encoding"/>" Parameter.
+            </summary>
+            <param name="FS"></param>
+            <param name="StringLength">Length of the string to read. Cannot be longer than the <see cref="P:System.IO.FileStream.Length"/></param>
+            <param name="Encoding">Encoding to use when getting the string</param>
+            <returns>Complete String</returns>
+        </member>
+        <member name="M:Hack.io.FileStreamEx.WriteString(System.IO.FileStream,System.String)">
+            <summary>
+            Writes a string. String won't be null terminated
+            </summary>
+            <param name="FS"></param>
+            <param name="String">String to write to the file</param>
+        </member>
+        <member name="M:Hack.io.FileStreamEx.WriteString(System.IO.FileStream,System.String,System.Byte)">
+            <summary>
+            Writes a string. String will be null terminated with the <paramref name="Terminator"/>
+            </summary>
+            <param name="FS"></param>
+            <param name="String">String to write to the file</param>
+            <param name="Terminator">The Terminator of the string. Usually 0x00</param>
+        </member>
+        <member name="M:Hack.io.FileStreamEx.ReadChar(System.IO.FileStream,System.Int32,System.Text.Encoding)">
+            <summary>
+            Reads a char from the file.
+            </summary>
+            <param name="FS"></param>
+            <param name="CharLength">Expected Length of the Character</param>
+            <param name="Encoding">Encoding to use when getting the string</param>
+            <returns>Complete String</returns>
+        </member>
+        <member name="M:Hack.io.FileStreamEx.PeekByte(System.IO.FileStream)">
+            <summary>
+            Peek the next byte
+            </summary>
+            <param name="FS">this</param>
+            <returns>The next byte to be read</returns>
+        </member>
+        <member name="T:Hack.io.MemoryStreamEx">
+            <summary>
+            Extension of the <see cref="T:System.IO.MemoryStream"/> designed for Big Endian
+            </summary>
+        </member>
+        <member name="M:Hack.io.MemoryStreamEx.Read(System.IO.MemoryStream,System.Int32,System.UInt32)">
+            <summary>
+            Reads a block of bytes from the stream and writes the data in a given buffer (For Little Endian)
+            </summary>
+            <param name="FS">This</param>
+            <param name="Offset">The byte offset in array at which the read bytes will be placed.</param>
+            <param name="Count">The maximum number of bytes to read.</param>
+            <returns>The total number of bytes read into the buffer. This might be less than the number of bytes requested if that number of bytes are not currently available, or zero if the end of the stream is reached.</returns>
+            <exception cref="T:System.ArgumentOutOfRangeException">Offset or Count is negative.</exception>
+            <exception cref="T:System.NotSupportedException">The stream does not support reading.</exception>
+            <exception cref="T:System.IO.IOException">An I/O error occurred.</exception>
+            <exception cref="T:System.ArgumentException">Offset and Count describe an invalid range in array.</exception>
+            <exception cref="T:System.ObjectDisposedException">Methods were called after the stream was closed.</exception>
+        </member>
+        <member name="M:Hack.io.MemoryStreamEx.Read(System.IO.MemoryStream,System.Int32,System.Int32)">
+            <summary>
+            Reads a block of bytes from the stream and writes the data in a given buffer (For Little Endian)
+            </summary>
+            <param name="FS">This</param>
+            <param name="Offset">The byte offset in array at which the read bytes will be placed.</param>
+            <param name="Count">The maximum number of bytes to read.</param>
+            <returns>The total number of bytes read into the buffer. This might be less than the number of bytes requested if that number of bytes are not currently available, or zero if the end of the stream is reached.</returns>
+            <exception cref="T:System.ArgumentOutOfRangeException">Offset or Count is negative.</exception>
+            <exception cref="T:System.NotSupportedException">The stream does not support reading.</exception>
+            <exception cref="T:System.IO.IOException">An I/O error occurred.</exception>
+            <exception cref="T:System.ArgumentException">Offset and Count describe an invalid range in array.</exception>
+            <exception cref="T:System.ObjectDisposedException">Methods were called after the stream was closed.</exception>
+        </member>
+        <member name="M:Hack.io.MemoryStreamEx.ReadReverse(System.IO.MemoryStream,System.Int32,System.Int32)">
+            <summary>
+            Reads a block of bytes from the stream and writes the data in a given buffer... but Backwards! (For Big Endian)
+            </summary>
+            <param name="FS">This</param>
+            <param name="Offset">The byte offset in array at which the read bytes will be placed.</param>
+            <param name="Count">The maximum number of bytes to read.</param>
+            <returns>The total number of bytes read into the buffer. This might be less than the number of bytes requested if that number of bytes are not currently available, or zero if the end of the stream is reached.</returns>
+            <exception cref="T:System.ArgumentOutOfRangeException">Offset or Count is negative.</exception>
+            <exception cref="T:System.NotSupportedException">The stream does not support reading.</exception>
+            <exception cref="T:System.IO.IOException">An I/O error occurred.</exception>
+            <exception cref="T:System.ArgumentException">Offset and Count describe an invalid range in array.</exception>
+            <exception cref="T:System.ObjectDisposedException">Methods were called after the stream was closed.</exception>
+        </member>
+        <member name="M:Hack.io.MemoryStreamEx.WriteReverse(System.IO.MemoryStream,System.Byte[],System.Int32,System.Int32)">
+            <summary>
+            Writes a block of bytes to the file stream... but Backwards! (For Big Endian)
+            </summary>
+            <param name="FS">This</param>
+            <param name="Array">The buffer containing data to write to the stream</param>
+            <param name="Offset">The zero-based byte offset in array from which to begin copying bytes to the stream</param>
+            <param name="Count">The maximum number of bytes to write</param>
+            <exception cref="T:System.ArgumentNullException">array is null.</exception>
+            <exception cref="T:System.ArgumentException">offset and count describe an invalid range in array.</exception>
+            <exception cref="T:System.ArgumentOutOfRangeException">offset or count is negative</exception>
+            <exception cref="T:System.IO.IOException">An I/O error occurred, or Another thread may have caused an unexpected change in the position of the operating system's file handle</exception>
+            <exception cref="T:System.ObjectDisposedException">The stream is closed</exception>
+            <exception cref="T:System.NotSupportedException">The current stream instance does not support writing</exception>
+        </member>
+        <member name="M:Hack.io.MemoryStreamEx.ReadString(System.IO.MemoryStream)">
+            <summary>
+            Reads a String from the file. Strings are terminated by 0x00. <para/> The decoded string is in SHIFT-JIS
+            </summary>
+            <param name="FS"></param>
+            <returns>Complete String</returns>
+        </member>
+        <member name="M:Hack.io.MemoryStreamEx.ReadString(System.IO.MemoryStream,System.Int32)">
+            <summary>
+            Reads a String from the file. String length is determined by the "<paramref name="StringLength"/>" parameter. <para/> The decoded string is in SHIFT-JIS
+            </summary>
+            <param name="FS"></param>
+            <param name="StringLength">Length of the string to read. Cannot be longer than the <see cref="P:System.IO.FileStream.Length"/></param>
+            <returns>Complete String</returns>
+        </member>
+        <member name="M:Hack.io.MemoryStreamEx.ReadString(System.IO.MemoryStream,System.Text.Encoding)">
+            <summary>
+            Reads a String from the file. Strings are terminated by 0x00. <para/> The decoded string is defined by the "<paramref name="Encoding"/>" Parameter.
+            </summary>
+            <param name="FS"></param>
+            <param name="Encoding">Encoding to use when getting the string</param>
+            <returns>Complete String</returns>
+        </member>
+        <member name="M:Hack.io.MemoryStreamEx.ReadString(System.IO.MemoryStream,System.Int32,System.Text.Encoding)">
+            <summary>
+            Reads a String from the file. String length is determined by the "<paramref name="StringLength"/>" parameter. <para/> The decoded string is defined by the "<paramref name="Encoding"/>" Parameter.
+            </summary>
+            <param name="FS"></param>
+            <param name="StringLength">Length of the string to read. Cannot be longer than the <see cref="P:System.IO.FileStream.Length"/></param>
+            <param name="Encoding">Encoding to use when getting the string</param>
+            <returns>Complete String</returns>
+        </member>
+        <member name="M:Hack.io.MemoryStreamEx.WriteString(System.IO.MemoryStream,System.String)">
+            <summary>
+            Writes a string. String won't be null terminated
+            </summary>
+            <param name="FS"></param>
+            <param name="String">String to write to the file</param>
+        </member>
+        <member name="M:Hack.io.MemoryStreamEx.WriteString(System.IO.MemoryStream,System.String,System.Byte)">
+            <summary>
+            Writes a string. String will be null terminated with the <paramref name="Terminator"/>
+            </summary>
+            <param name="FS"></param>
+            <param name="String">String to write to the file</param>
+            <param name="Terminator">The Terminator of the string. Usually 0x00</param>
+        </member>
+        <member name="M:Hack.io.MemoryStreamEx.ReadChar(System.IO.MemoryStream,System.Int32,System.Text.Encoding)">
+            <summary>
+            Reads a char from the file.
+            </summary>
+            <param name="FS"></param>
+            <param name="CharLength">Expected Length of the Character</param>
+            <param name="Encoding">Encoding to use when getting the string</param>
+            <returns>Complete String</returns>
+        </member>
+        <member name="M:Hack.io.MemoryStreamEx.PeekByte(System.IO.MemoryStream)">
+            <summary>
+            Peek the next byte
+            </summary>
+            <param name="FS">this</param>
+            <returns>The next byte to be read</returns>
+        </member>
+        <member name="T:Hack.io.StreamEx">
+            <summary>
+            Extension of the <see cref="T:System.IO.Stream"/> designed for Big Endian
+            </summary>
+        </member>
+        <member name="M:Hack.io.StreamEx.Read(System.IO.Stream,System.Int32,System.UInt32)">
+            <summary>
+            Reads a block of bytes from the stream and writes the data in a given buffer (For Little Endian)
+            </summary>
+            <param name="FS">This</param>
+            <param name="Offset">The byte offset in array at which the read bytes will be placed.</param>
+            <param name="Count">The maximum number of bytes to read.</param>
+            <returns>The total number of bytes read into the buffer. This might be less than the number of bytes requested if that number of bytes are not currently available, or zero if the end of the stream is reached.</returns>
+            <exception cref="T:System.ArgumentOutOfRangeException">Offset or Count is negative.</exception>
+            <exception cref="T:System.NotSupportedException">The stream does not support reading.</exception>
+            <exception cref="T:System.IO.IOException">An I/O error occurred.</exception>
+            <exception cref="T:System.ArgumentException">Offset and Count describe an invalid range in array.</exception>
+            <exception cref="T:System.ObjectDisposedException">Methods were called after the stream was closed.</exception>
+        </member>
+        <member name="M:Hack.io.StreamEx.Read(System.IO.Stream,System.Int32,System.Int32)">
+            <summary>
+            Reads a block of bytes from the stream and writes the data in a given buffer (For Little Endian)
+            </summary>
+            <param name="FS">This</param>
+            <param name="Offset">The byte offset in array at which the read bytes will be placed.</param>
+            <param name="Count">The maximum number of bytes to read.</param>
+            <returns>The total number of bytes read into the buffer. This might be less than the number of bytes requested if that number of bytes are not currently available, or zero if the end of the stream is reached.</returns>
+            <exception cref="T:System.ArgumentOutOfRangeException">Offset or Count is negative.</exception>
+            <exception cref="T:System.NotSupportedException">The stream does not support reading.</exception>
+            <exception cref="T:System.IO.IOException">An I/O error occurred.</exception>
+            <exception cref="T:System.ArgumentException">Offset and Count describe an invalid range in array.</exception>
+            <exception cref="T:System.ObjectDisposedException">Methods were called after the stream was closed.</exception>
+        </member>
+        <member name="M:Hack.io.StreamEx.ReadReverse(System.IO.Stream,System.Int32,System.Int32)">
+            <summary>
+            Reads a block of bytes from the stream and writes the data in a given buffer... but Backwards! (For Big Endian)
+            </summary>
+            <param name="FS">This</param>
+            <param name="Offset">The byte offset in array at which the read bytes will be placed.</param>
+            <param name="Count">The maximum number of bytes to read.</param>
+            <returns>The total number of bytes read into the buffer. This might be less than the number of bytes requested if that number of bytes are not currently available, or zero if the end of the stream is reached.</returns>
+            <exception cref="T:System.ArgumentOutOfRangeException">Offset or Count is negative.</exception>
+            <exception cref="T:System.NotSupportedException">The stream does not support reading.</exception>
+            <exception cref="T:System.IO.IOException">An I/O error occurred.</exception>
+            <exception cref="T:System.ArgumentException">Offset and Count describe an invalid range in array.</exception>
+            <exception cref="T:System.ObjectDisposedException">Methods were called after the stream was closed.</exception>
+        </member>
+        <member name="M:Hack.io.StreamEx.WriteReverse(System.IO.Stream,System.Byte[],System.Int32,System.Int32)">
+            <summary>
+            Writes a block of bytes to the file stream... but Backwards! (For Big Endian)
+            </summary>
+            <param name="FS">This</param>
+            <param name="Array">The buffer containing data to write to the stream</param>
+            <param name="Offset">The zero-based byte offset in array from which to begin copying bytes to the stream</param>
+            <param name="Count">The maximum number of bytes to write</param>
+            <exception cref="T:System.ArgumentNullException">array is null.</exception>
+            <exception cref="T:System.ArgumentException">offset and count describe an invalid range in array.</exception>
+            <exception cref="T:System.ArgumentOutOfRangeException">offset or count is negative</exception>
+            <exception cref="T:System.IO.IOException">An I/O error occurred, or Another thread may have caused an unexpected change in the position of the operating system's file handle</exception>
+            <exception cref="T:System.ObjectDisposedException">The stream is closed</exception>
+            <exception cref="T:System.NotSupportedException">The current stream instance does not support writing</exception>
+        </member>
+        <member name="M:Hack.io.StreamEx.ReadString(System.IO.Stream)">
+            <summary>
+            Reads a String from the file. Strings are terminated by 0x00. <para/> The decoded string is in SHIFT-JIS
+            </summary>
+            <param name="FS"></param>
+            <returns>Complete String</returns>
+        </member>
+        <member name="M:Hack.io.StreamEx.ReadString(System.IO.Stream,System.Int32)">
+            <summary>
+            Reads a String from the file. String length is determined by the "<paramref name="StringLength"/>" parameter. <para/> The decoded string is in SHIFT-JIS
+            </summary>
+            <param name="FS"></param>
+            <param name="StringLength">Length of the string to read. Cannot be longer than the <see cref="P:System.IO.FileStream.Length"/></param>
+            <returns>Complete String</returns>
+        </member>
+        <member name="M:Hack.io.StreamEx.ReadString(System.IO.Stream,System.Text.Encoding)">
+            <summary>
+            Reads a String from the file. Strings are terminated by 0x00. <para/> The decoded string is defined by the "<paramref name="Encoding"/>" Parameter.
+            </summary>
+            <param name="FS"></param>
+            <param name="Encoding">Encoding to use when getting the string</param>
+            <returns>Complete String</returns>
+        </member>
+        <member name="M:Hack.io.StreamEx.ReadString(System.IO.Stream,System.Int32,System.Text.Encoding)">
+            <summary>
+            Reads a String from the file. String length is determined by the "<paramref name="StringLength"/>" parameter. <para/> The decoded string is defined by the "<paramref name="Encoding"/>" Parameter.
+            </summary>
+            <param name="FS"></param>
+            <param name="StringLength">Length of the string to read. Cannot be longer than the <see cref="P:System.IO.FileStream.Length"/></param>
+            <param name="Encoding">Encoding to use when getting the string</param>
+            <returns>Complete String</returns>
+        </member>
+        <member name="M:Hack.io.StreamEx.WriteString(System.IO.Stream,System.String)">
+            <summary>
+            Writes a string. String won't be null terminated
+            </summary>
+            <param name="FS"></param>
+            <param name="String">String to write to the file</param>
+        </member>
+        <member name="M:Hack.io.StreamEx.WriteString(System.IO.Stream,System.String,System.Byte)">
+            <summary>
+            Writes a string. String will be null terminated with the <paramref name="Terminator"/>
+            </summary>
+            <param name="FS"></param>
+            <param name="String">String to write to the file</param>
+            <param name="Terminator">The Terminator of the string. Usually 0x00</param>
+        </member>
+        <member name="M:Hack.io.StreamEx.WriteString(System.IO.Stream,System.String,System.Text.Encoding)">
+            <summary>
+            Writes a string. String won't be null terminated
+            </summary>
+            <param name="FS"></param>
+            <param name="String">String to write to the file</param>
+            <param name="Encoding"></param>
+        </member>
+        <member name="M:Hack.io.StreamEx.WriteSByte(System.IO.Stream,System.SByte)">
+            <summary>
+            writes an SByte
+            </summary>
+            <param name="FS"></param>
+            <param name="Data">The SByte</param>
+        </member>
+        <member name="M:Hack.io.StreamEx.WriteColour(System.IO.Stream,System.Drawing.Color,System.String)">
+            <summary>
+            Writes a Colour to a stream
+            </summary>
+        </member>
+        <member name="M:Hack.io.StreamEx.PadTo(System.IO.Stream,System.Int32,System.Byte)">
+            <summary>
+            Adds Padding to the Current Position in the provided Stream
+            </summary>
+            <param name="FS">The Stream to add padding to</param>
+            <param name="Multiple">The byte multiple to pad to</param>
+            <param name="Padding">The byte multiple to pad to</param>
+        </member>
+        <member name="M:Hack.io.StreamEx.ReadChar(System.IO.Stream,System.Text.Encoding)">
+            <summary>
+            Reads a char from the file.
+            </summary>
+            <param name="FS"></param>
+            <param name="Encoding">Encoding to use when getting the string</param>
+            <returns>Complete String</returns>
+        </member>
+        <member name="M:Hack.io.StreamEx.PeekByte(System.IO.Stream)">
+            <summary>
+            Peek the next byte
+            </summary>
+            <param name="FS">this</param>
+            <returns>The next byte to be read</returns>
+        </member>
+        <member name="T:Hack.ConsoleEx.ConsoleEx">
+            <summary>
+            Extension of the console
+            </summary>
+        </member>
+        <member name="M:Hack.ConsoleEx.ConsoleEx.Confirm(System.ConsoleKey,System.ConsoleKey)">
+            <summary>
+            Checks to see if the user presses certain keys
+            </summary>
+            <param name="YesKey">The key to indicate "Yes"</param>
+            <param name="NoKey">The key to indicate "No"</param>
+            <returns>true if the user presses the YesKey</returns>
+        </member>
+        <member name="M:Hack.ConsoleEx.ConsoleEx.WriteColoured(System.String,System.ConsoleColor,System.ConsoleColor,System.Boolean)">
+            <summary>
+            Writes a coloured message to the console
+            </summary>
+            <param name="message">Message to print</param>
+            <param name="ForeColour">ConsoleColor to use for the text</param>
+            <param name="BackColour">ConsoleColor to use for the background of the text</param>
+            <param name="newline">Switch to the next line?</param>
+        </member>
+        <member name="M:Hack.ConsoleEx.ConsoleEx.Quit(System.Int32,System.String)">
+            <summary>
+            Quits the Console with a given error message
+            </summary>
+            <param name="ExitCode">Code to exit with.</param>
+            <param name="ErrorMsg">The error message</param>
+        </member>
+    </members>
+</doc>
