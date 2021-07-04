@@ -1,0 +1,25 @@
+name: Python Test
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  build:
+
+    runs-on: windows-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - uses: actions/setup-python@v2
+    - shell: cmd
+      run: python Download.py ${{ secrets.TEST_STAGE_URL }}
+    - run: python Byml_Dumper.py
+    - name: Upload Artifact
+      uses: actions/upload-artifact@v2.2.4
+      with:
+        name: Build
+        path: |
+          *.txt
