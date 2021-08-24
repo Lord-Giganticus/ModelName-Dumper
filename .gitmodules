@@ -1,0 +1,6 @@
+[submodule "Source/Sarc.cs/Hack.io"]
+	path = Source/Sarc.cs/Hack.io
+	url = https://github.com/SuperHackio/Hack.io.git
+[submodule "Source/Byml.cs/SM3DW-Level-Porter"]
+	path = Source/Byml.cs/SM3DW-Level-Porter
+	url = https://github.com/Lord-Giganticus/SM3DW-Level-Porter.git
