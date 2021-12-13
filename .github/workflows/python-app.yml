@@ -25,7 +25,7 @@ jobs:
           *.txt
     - shell: cmd
       if: github.ref == 'refs/heads/master'
-      run: '7z a "${{ github.workspace }}/Model Name Dumper.zip" *.py -r Byml.cs Dumper Sarc.cs -xr!Source'
+      run: '7z a "${{ github.workspace }}/Model Name Dumper.zip" *.py -r Byml.cs Dumper Sarc.cs Counter -xr!Source'
     - uses: "marvinpinto/action-automatic-releases@latest"
       if: github.ref == 'refs/heads/master'
       with:
