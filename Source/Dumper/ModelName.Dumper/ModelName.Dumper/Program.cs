@@ -51,6 +51,9 @@ namespace ModelName.Dumper
                 }
                 Directory.SetCurrentDirectory(file.Directory.FullName);
                 File.WriteAllLines($"{file.Name.ReverseSubstring(file.Name.IndexOf('.'))}-{endian ?? "unknown"}.txt", names.ToArray());
+                var text = File.ReadAllText($"{file.Name.ReverseSubstring(file.Name.IndexOf('.'))}-{endian ?? "unknown"}.txt");
+                text = new string(text.Take(text.Length - 2).ToArray());
+                File.WriteAllText($"{file.Name.ReverseSubstring(file.Name.IndexOf('.'))}-{endian ?? "unknown"}.txt", text);
                 Directory.SetCurrentDirectory(AppLocation);
             }
         }

@@ -21,11 +21,18 @@ namespace ModelName_Counter
             {
                 var dict = new Dictionary<string, int>();
                 foreach (var line in File.ReadAllLines(file.FullName))
-                    if (!dict.ContainsKey(line) && !string.IsNullOrWhiteSpace(line))
-                        dict.Add(line, File.ReadAllLines(file.FullName).Where(s => s == line).Count());
+                    if (!string.IsNullOrWhiteSpace(line))
+                    {
+                        if (!dict.ContainsKey(line))
+                            dict.Add(line, 1);
+                        else
+                            dict[line]++;
+                    }
                 var writer = new StreamWriter($"{file.Directory.FullName}\\{Path.GetFileNameWithoutExtension(file.FullName)}.count.txt");
-                foreach (var d in dict)
+                foreach (var d in dict.Take(dict.Count - 1))
                     writer.WriteLine($"The number of times {d.Key} appeared: {d.Value}");
+                var l = dict.Last();
+                writer.Write($"The number of times {l.Key} appeared: {l.Value}");
                 writer.Close();
             }
         }
