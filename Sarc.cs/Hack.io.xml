@@ -4,6 +4,425 @@
         <name>Hack.io</name>
     </assembly>
     <members>
+        <member name="T:Hack.io.Util.Archive">
+            <summary>
+            The base class for Archive like systems
+            </summary>
+        </member>
+        <member name="P:Hack.io.Util.Archive.FileName">
+            <summary>
+            Filename of this Archive.
+            <para/>Set using <see cref="M:Hack.io.Util.Archive.Save(System.String)"/>;
+            </summary>
+        </member>
+        <member name="P:Hack.io.Util.Archive.Name">
+            <summary>
+            Get the name of the archive without the path
+            </summary>
+        </member>
+        <member name="P:Hack.io.Util.Archive.Root">
+            <summary>
+            The Root Directory of the Archive
+            </summary>
+        </member>
+        <member name="P:Hack.io.Util.Archive.TotalFileCount">
+            <summary>
+            The total amount of files inside this archive.
+            </summary>
+        </member>
+        <member name="M:Hack.io.Util.Archive.Read(System.IO.Stream)">
+            <summary>
+            The Binary I/O function for reading the file
+            </summary>
+            <param name="ArchiveFile"></param>
+        </member>
+        <member name="M:Hack.io.Util.Archive.Write(System.IO.Stream)">
+            <summary>
+            The Binary I/O function for writing the file
+            </summary>
+            <param name="ArchiveFile"></param>
+        </member>
+        <member name="M:Hack.io.Util.Archive.Save(System.String)">
+            <summary>
+            Save the Archive to a File
+            </summary>
+            <param name="filepath">New file to save to</param>
+        </member>
+        <member name="M:Hack.io.Util.Archive.Save(System.IO.Stream)">
+            <summary>
+            Write the Archive to a Stream
+            </summary>
+            <param name="RARCFile"></param>
+        </member>
+        <member name="M:Hack.io.Util.Archive.ToString">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:Hack.io.Util.Archive.Item(System.String)">
+            <summary>
+            Get or Set a file based on a path. When setting, if the file doesn't exist, it will be added (Along with any missing subdirectories). Set the file to null to delete it
+            </summary>
+            <param name="Path">The Path to take. Does not need the Root name to start, but cannot start with a '/'</param>
+            <returns></returns>
+        </member>
+        <member name="M:Hack.io.Util.Archive.OnItemSet(System.Object,System.String)">
+            <summary>
+            Executed when you use ArchiveBase["FilePath"] to set a file
+            </summary>
+            <param name="value"></param>
+            <param name="Path"></param>
+        </member>
+        <member name="M:Hack.io.Util.Archive.ItemExists(System.String,System.Boolean)">
+            <summary>
+            Checks to see if an Item Exists based on a Path
+            </summary>
+            <param name="Path">The path to take</param>
+            <param name="IgnoreCase">Ignore casing of the file</param>
+            <returns>false if the Item isn't found</returns>
+        </member>
+        <member name="M:Hack.io.Util.Archive.GetItemKeyFromNoCase(System.String)">
+            <summary>
+            This will return the absolute path of an item if it exists in some way. Useful if you don't know the casing of the filename inside the file. Returns null if nothing is found.
+            </summary>
+            <param name="Path">The path to get the Actual path from</param>
+            <returns>null if nothing is found</returns>
+        </member>
+        <member name="M:Hack.io.Util.Archive.ClearAll">
+            <summary>
+            Clears all the files out of this archive
+            </summary>
+        </member>
+        <member name="M:Hack.io.Util.Archive.MoveItem(System.String,System.String)">
+            <summary>
+            Moves an item to a new directory
+            </summary>
+            <param name="OriginalPath"></param>
+            <param name="NewPath"></param>
+        </member>
+        <member name="M:Hack.io.Util.Archive.FindItems(System.String,System.Boolean,System.Boolean)">
+            <summary>
+            Search the archive for files that match the regex
+            </summary>
+            <param name="Pattern">The regex pattern to use</param>
+            <param name="RootLevelOnly">If true, all subdirectories will be skipped</param>
+            <param name="IgnoreCase">Ignore the filename casing</param>
+            <returns></returns>
+        </member>
+        <member name="M:Hack.io.Util.Archive.Import(System.String)">
+            <summary>
+            Create an Archive from a Folder
+            </summary>
+            <param name="Folderpath">Folder to make an archive from</param>
+        </member>
+        <member name="M:Hack.io.Util.Archive.Export(System.String,System.Boolean)">
+            <summary>
+            Dump the contents of this archive to a folder
+            </summary>
+            <param name="FolderPath">The Path to save to. Should be a folder</param>
+            <param name="Overwrite">If there are contents already at the chosen location, delete them?</param>
+        </member>
+        <member name="M:Hack.io.Util.Archive.NewDirectory">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Hack.io.Util.Archive.NewDirectory(Hack.io.Util.Archive,Hack.io.Util.ArchiveDirectory)">
+            <summary>
+            
+            </summary>
+            <param name="Owner"></param>
+            <param name="parent"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Hack.io.Util.Archive.NewDirectory(System.String,Hack.io.Util.Archive)">
+            <summary>
+            
+            </summary>
+            <param name="filename"></param>
+            <param name="Owner"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Hack.io.Util.ArchiveDirectory">
+            <summary>
+            Folder contained inside the Archive. Can contain more <see cref="T:Hack.io.Util.ArchiveDirectory"/>s if desired, as well as <see cref="T:Hack.io.Util.ArchiveFile"/>s
+            </summary>
+        </member>
+        <member name="P:Hack.io.Util.ArchiveDirectory.Name">
+            <summary>
+            The name of the Directory
+            </summary>
+        </member>
+        <member name="P:Hack.io.Util.ArchiveDirectory.Items">
+            <summary>
+            The contents of this directory.
+            </summary>
+        </member>
+        <member name="P:Hack.io.Util.ArchiveDirectory.Parent">
+            <summary>
+            The parent directory (Null if non-existant)
+            </summary>
+        </member>
+        <member name="F:Hack.io.Util.ArchiveDirectory.OwnerArchive">
+            <summary>
+            The Archive that owns this directory
+            </summary>
+        </member>
+        <member name="M:Hack.io.Util.ArchiveDirectory.#ctor">
+            <summary>
+            Create a new Archive Directory
+            </summary>
+        </member>
+        <member name="M:Hack.io.Util.ArchiveDirectory.#ctor(Hack.io.Util.Archive,Hack.io.Util.ArchiveDirectory)">
+            <summary>
+            Create a new, child directory
+            </summary>
+            <param name="Owner">The Owner Archive</param>
+            <param name="parentdir">The Parent Directory. NULL if this is the Root Directory</param>
+        </member>
+        <member name="M:Hack.io.Util.ArchiveDirectory.#ctor(System.String,Hack.io.Util.Archive)">
+            <summary>
+            Import a Folder into a RARCDirectory
+            </summary>
+            <param name="FolderPath"></param>
+            <param name="Owner"></param>
+        </member>
+        <member name="M:Hack.io.Util.ArchiveDirectory.Export(System.String)">
+            <summary>
+            Export this Directory to a folder.
+            </summary>
+            <param name="FolderPath">Folder to Export to. Don't expect the files to appear here. Expect a Folder with this <see cref="P:Hack.io.Util.ArchiveDirectory.Name"/> to appear</param>
+        </member>
+        <member name="P:Hack.io.Util.ArchiveDirectory.Item(System.String)">
+            <summary>
+            Get or Set a file based on a path. When setting, if the file doesn't exist, it will be added (Along with any missing subdirectories)
+            </summary>
+            <param name="Path">The Path to take</param>
+            <returns></returns>
+        </member>
+        <member name="M:Hack.io.Util.ArchiveDirectory.ItemExists(System.String,System.Boolean)">
+            <summary>
+            Checks to see if an Item Exists based on a Path
+            </summary>
+            <param name="Path">The path to take</param>
+            <param name="IgnoreCase">Ignore casing</param>
+            <returns>false if the Item isn't found</returns>
+        </member>
+        <member name="M:Hack.io.Util.ArchiveDirectory.ItemKeyExists(System.String,System.Boolean)">
+            <summary>
+            Checks to see if an item exists in this directory only
+            </summary>
+            <param name="ItemName">The name of the Item to look for (Case Sensitive)</param>
+            <param name="IgnoreCase">Ignore casing</param>
+            <returns>false if the Item doesn't exist</returns>
+        </member>
+        <member name="M:Hack.io.Util.ArchiveDirectory.GetItemKeyFromNoCase(System.String,System.Boolean)">
+            <summary>
+            
+            </summary>
+            <param name="Path"></param>
+            <param name="AttachRootName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Hack.io.Util.ArchiveDirectory.Clear">
+            <summary>
+            Clears all the items out of this directory
+            </summary>
+        </member>
+        <member name="P:Hack.io.Util.ArchiveDirectory.Count">
+            <summary>
+            Returns the amount of Items in this directory (Items in subdirectories not included)
+            </summary>
+        </member>
+        <member name="P:Hack.io.Util.ArchiveDirectory.FullPath">
+            <summary>
+            The full path of this directory. Cannot be used if this .arc doesn't belong to a RARC object
+            </summary>
+        </member>
+        <member name="M:Hack.io.Util.ArchiveDirectory.GetFullPath(System.Text.StringBuilder)">
+            <summary>
+            
+            </summary>
+            <param name="Path"></param>
+        </member>
+        <member name="M:Hack.io.Util.ArchiveDirectory.GetCountAndChildren">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:Hack.io.Util.ArchiveDirectory.HasOwnerArchive">
+            <summary>
+            Checks to see if this directory has an owner archive
+            </summary>
+        </member>
+        <member name="M:Hack.io.Util.ArchiveDirectory.SortItemsByOrder(System.String[])">
+            <summary>
+            Sorts the Items inside this directory using the provided string[]. This string[] MUST contain all entries inside this directory
+            </summary>
+            <param name="NewItemOrder"></param>
+        </member>
+        <member name="M:Hack.io.Util.ArchiveDirectory.MoveItemToDirectory(System.String,Hack.io.Util.ArchiveDirectory)">
+            <summary>
+            Moves an item from it's current directory to a new directory
+            </summary>
+            <param name="ItemKey">The Key of the Item</param>
+            <param name="TargetDirectory"></param>
+        </member>
+        <member name="M:Hack.io.Util.ArchiveDirectory.RenameItem(System.String,System.String)">
+            <summary>
+            Rename an item in the directory
+            </summary>
+            <param name="OldName"></param>
+            <param name="NewName"></param>
+        </member>
+        <member name="M:Hack.io.Util.ArchiveDirectory.FindItems(System.String,System.Boolean,System.Boolean)">
+            <summary>
+            Search the directory for files that match the regex
+            </summary>
+            <param name="Pattern">The regex pattern to use</param>
+            <param name="TopLevelOnly">If true, all subdirectories will be skipped</param>
+            <param name="IgnoreCase">Ignore the filename casing</param>
+            <returns>List of Item Keys</returns>
+        </member>
+        <member name="M:Hack.io.Util.ArchiveDirectory.ToString">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Hack.io.Util.ArchiveDirectory.CreateFromFolder(System.String,Hack.io.Util.Archive)">
+            <summary>
+            Create an ArchiveDirectory. You cannot use this function unless this directory is empty
+            </summary>
+            <param name="FolderPath"></param>
+            <param name="OwnerArchive"></param>
+        </member>
+        <member name="M:Hack.io.Util.ArchiveDirectory.NewDirectory">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Hack.io.Util.ArchiveDirectory.NewDirectory(Hack.io.Util.Archive,Hack.io.Util.ArchiveDirectory)">
+            <summary>
+            
+            </summary>
+            <param name="Owner"></param>
+            <param name="parent"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Hack.io.Util.ArchiveDirectory.NewDirectory(System.String,Hack.io.Util.Archive)">
+            <summary>
+            
+            </summary>
+            <param name="filename"></param>
+            <param name="Owner"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Hack.io.Util.ArchiveFile">
+            <summary>
+            File contained inside the Archive
+            </summary>
+        </member>
+        <member name="P:Hack.io.Util.ArchiveFile.Name">
+            <summary>
+            Name of the File
+            </summary>
+        </member>
+        <member name="P:Hack.io.Util.ArchiveFile.Extension">
+            <summary>
+            The extension of this file
+            </summary>
+        </member>
+        <member name="P:Hack.io.Util.ArchiveFile.FileData">
+            <summary>
+            The Actual Data for the file
+            </summary>
+        </member>
+        <member name="P:Hack.io.Util.ArchiveFile.Parent">
+            <summary>
+            The parent directory (Null if non-existant)
+            </summary>
+        </member>
+        <member name="M:Hack.io.Util.ArchiveFile.#ctor">
+            <summary>
+            Empty file
+            </summary>
+        </member>
+        <member name="M:Hack.io.Util.ArchiveFile.#ctor(System.String)">
+            <summary>
+            Load a File's Data based on a path
+            </summary>
+            <param name="Filepath"></param>
+        </member>
+        <member name="M:Hack.io.Util.ArchiveFile.#ctor(System.String,System.IO.MemoryStream)">
+            <summary>
+            Create a File from a MemoryStream
+            </summary>
+            <param name="name">The name of the file</param>
+            <param name="ms">The Memory Stream to use</param>
+        </member>
+        <member name="M:Hack.io.Util.ArchiveFile.Save(System.String)">
+            <summary>
+            Saves this file to the Computer's Disk
+            </summary>
+            <param name="Filepath">The full path to save to</param>
+        </member>
+        <member name="M:Hack.io.Util.ArchiveFile.op_Equality(Hack.io.Util.ArchiveFile,Hack.io.Util.ArchiveFile)">
+            <summary>
+            
+            </summary>
+            <param name="left"></param>
+            <param name="right"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Hack.io.Util.ArchiveFile.op_Inequality(Hack.io.Util.ArchiveFile,Hack.io.Util.ArchiveFile)">
+            <summary>
+            
+            </summary>
+            <param name="left"></param>
+            <param name="right"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Hack.io.Util.ArchiveFile.Equals(System.Object)">
+            <summary>
+            Compare this file to another
+            </summary>
+            <param name="obj">The Object to check</param>
+            <returns>True if the files are identical</returns>
+        </member>
+        <member name="M:Hack.io.Util.ArchiveFile.GetHashCode">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Hack.io.Util.ArchiveFile.ToString">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:Hack.io.Util.ArchiveFile.FullPath">
+            <summary>
+            The full path of this file. Cannot be used if this file doesn't belong to a RARC object somehow
+            </summary>
+        </member>
+        <member name="M:Hack.io.Util.ArchiveFile.GetFullPath(System.Text.StringBuilder)">
+            <summary>
+            
+            </summary>
+            <param name="Path"></param>
+        </member>
+        <member name="M:Hack.io.Util.ArchiveFile.op_Explicit(Hack.io.Util.ArchiveFile)~System.IO.MemoryStream">
+            <summary>
+            Cast a File to a MemoryStream
+            </summary>
+            <param name="x"></param>
+        </member>
         <member name="T:Hack.io.Util.Int24">
             <summary>
             I need this because Nintendo had this strange idea that using Int24 is OK
@@ -35,15 +454,351 @@
             </summary>
             <param name="Value"></param>
         </member>
+        <member name="M:Hack.io.Util.Int24.op_Addition(Hack.io.Util.Int24,Hack.io.Util.Int24)">
+            <summary>
+            
+            </summary>
+            <param name="a"></param>
+            <param name="b"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Hack.io.Util.Int24.op_Subtraction(Hack.io.Util.Int24,Hack.io.Util.Int24)">
+            <summary>
+            
+            </summary>
+            <param name="a"></param>
+            <param name="b"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Hack.io.Util.Int24.op_Multiply(Hack.io.Util.Int24,Hack.io.Util.Int24)">
+            <summary>
+            
+            </summary>
+            <param name="a"></param>
+            <param name="b"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Hack.io.Util.Int24.op_Division(Hack.io.Util.Int24,Hack.io.Util.Int24)">
+            <summary>
+            
+            </summary>
+            <param name="a"></param>
+            <param name="b"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Hack.io.Util.Int24.op_Modulus(Hack.io.Util.Int24,Hack.io.Util.Int24)">
+            <summary>
+            
+            </summary>
+            <param name="a"></param>
+            <param name="b"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Hack.io.Util.Int24.op_BitwiseAnd(Hack.io.Util.Int24,Hack.io.Util.Int24)">
+            <summary>
+            
+            </summary>
+            <param name="a"></param>
+            <param name="b"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Hack.io.Util.Int24.op_BitwiseOr(Hack.io.Util.Int24,Hack.io.Util.Int24)">
+            <summary>
+            
+            </summary>
+            <param name="a"></param>
+            <param name="b"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Hack.io.Util.Int24.op_ExclusiveOr(Hack.io.Util.Int24,Hack.io.Util.Int24)">
+            <summary>
+            
+            </summary>
+            <param name="a"></param>
+            <param name="b"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Hack.io.Util.Int24.op_RightShift(Hack.io.Util.Int24,System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="a"></param>
+            <param name="b"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Hack.io.Util.Int24.op_LeftShift(Hack.io.Util.Int24,System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="a"></param>
+            <param name="b"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Hack.io.Util.Int24.op_OnesComplement(Hack.io.Util.Int24)">
+            <summary>
+            
+            </summary>
+            <param name="a"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Hack.io.Util.Int24.op_Increment(Hack.io.Util.Int24)">
+            <summary>
+            
+            </summary>
+            <param name="a"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Hack.io.Util.Int24.op_Decrement(Hack.io.Util.Int24)">
+            <summary>
+            
+            </summary>
+            <param name="a"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Hack.io.Util.Int24.op_Equality(Hack.io.Util.Int24,Hack.io.Util.Int24)">
+            <summary>
+            
+            </summary>
+            <param name="l"></param>
+            <param name="r"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Hack.io.Util.Int24.op_Inequality(Hack.io.Util.Int24,Hack.io.Util.Int24)">
+            <summary>
+            
+            </summary>
+            <param name="l"></param>
+            <param name="r"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Hack.io.Util.Int24.op_GreaterThan(Hack.io.Util.Int24,Hack.io.Util.Int24)">
+            <summary>
+            
+            </summary>
+            <param name="l"></param>
+            <param name="r"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Hack.io.Util.Int24.op_LessThan(Hack.io.Util.Int24,Hack.io.Util.Int24)">
+            <summary>
+            
+            </summary>
+            <param name="l"></param>
+            <param name="r"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Hack.io.Util.Int24.op_GreaterThanOrEqual(Hack.io.Util.Int24,Hack.io.Util.Int24)">
+            <summary>
+            
+            </summary>
+            <param name="l"></param>
+            <param name="r"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Hack.io.Util.Int24.op_LessThanOrEqual(Hack.io.Util.Int24,Hack.io.Util.Int24)">
+            <summary>
+            
+            </summary>
+            <param name="l"></param>
+            <param name="r"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Hack.io.Util.Int24.op_Addition(System.Byte,Hack.io.Util.Int24)">
+            <summary>
+            
+            </summary>
+            <param name="a"></param>
+            <param name="b"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Hack.io.Util.Int24.op_Addition(System.Int16,Hack.io.Util.Int24)">
+            <summary>
+            
+            </summary>
+            <param name="a"></param>
+            <param name="b"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Hack.io.Util.Int24.op_Addition(System.UInt16,Hack.io.Util.Int24)">
+            <summary>
+            
+            </summary>
+            <param name="a"></param>
+            <param name="b"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Hack.io.Util.Int24.op_Addition(System.Int32,Hack.io.Util.Int24)">
+            <summary>
+            
+            </summary>
+            <param name="a"></param>
+            <param name="b"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Hack.io.Util.Int24.op_Addition(System.UInt32,Hack.io.Util.Int24)">
+            <summary>
+            
+            </summary>
+            <param name="a"></param>
+            <param name="b"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Hack.io.Util.Int24.op_Addition(System.Int64,Hack.io.Util.Int24)">
+            <summary>
+            
+            </summary>
+            <param name="a"></param>
+            <param name="b"></param>
+            <returns></returns>
+        </member>
         <member name="M:Hack.io.Util.Int24.ToString">
             <summary>
             
             </summary>
             <returns></returns>
         </member>
-        <member name="T:Hack.io.Util.UInt24">
+        <member name="M:Hack.io.Util.Int24.ToString(System.IFormatProvider)">
             <summary>
             
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Hack.io.Util.Int24.ToString(System.String)">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Hack.io.Util.Int24.ToString(System.String,System.IFormatProvider)">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Hack.io.Util.Int24.Equals(System.Object)">
+            <summary>
+            
+            </summary>
+            <param name="obj"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Hack.io.Util.Int24.GetHashCode">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Hack.io.Util.Int24.op_Explicit(System.Byte)~Hack.io.Util.Int24">
+            <summary>
+            
+            </summary>
+            <param name="x"></param>
+        </member>
+        <member name="M:Hack.io.Util.Int24.op_Explicit(Hack.io.Util.Int24)~System.Byte">
+            <summary>
+            
+            </summary>
+            <param name="x"></param>
+        </member>
+        <member name="M:Hack.io.Util.Int24.op_Explicit(System.SByte)~Hack.io.Util.Int24">
+            <summary>
+            
+            </summary>
+            <param name="x"></param>
+        </member>
+        <member name="M:Hack.io.Util.Int24.op_Explicit(Hack.io.Util.Int24)~System.SByte">
+            <summary>
+            
+            </summary>
+            <param name="x"></param>
+        </member>
+        <member name="M:Hack.io.Util.Int24.op_Explicit(System.Int16)~Hack.io.Util.Int24">
+            <summary>
+            
+            </summary>
+            <param name="x"></param>
+        </member>
+        <member name="M:Hack.io.Util.Int24.op_Explicit(Hack.io.Util.Int24)~System.Int16">
+            <summary>
+            
+            </summary>
+            <param name="x"></param>
+        </member>
+        <member name="M:Hack.io.Util.Int24.op_Explicit(System.UInt16)~Hack.io.Util.Int24">
+            <summary>
+            
+            </summary>
+            <param name="x"></param>
+        </member>
+        <member name="M:Hack.io.Util.Int24.op_Explicit(Hack.io.Util.Int24)~System.UInt16">
+            <summary>
+            
+            </summary>
+            <param name="x"></param>
+        </member>
+        <member name="M:Hack.io.Util.Int24.op_Explicit(Hack.io.Util.UInt24)~Hack.io.Util.Int24">
+            <summary>
+            
+            </summary>
+            <param name="x"></param>
+        </member>
+        <member name="M:Hack.io.Util.Int24.op_Explicit(Hack.io.Util.Int24)~Hack.io.Util.UInt24">
+            <summary>
+            
+            </summary>
+            <param name="x"></param>
+        </member>
+        <member name="M:Hack.io.Util.Int24.op_Explicit(System.Int32)~Hack.io.Util.Int24">
+            <summary>
+            
+            </summary>
+            <param name="x"></param>
+        </member>
+        <member name="M:Hack.io.Util.Int24.op_Explicit(Hack.io.Util.Int24)~System.Int32">
+            <summary>
+            
+            </summary>
+            <param name="x"></param>
+        </member>
+        <member name="M:Hack.io.Util.Int24.op_Explicit(System.UInt32)~Hack.io.Util.Int24">
+            <summary>
+            
+            </summary>
+            <param name="x"></param>
+        </member>
+        <member name="M:Hack.io.Util.Int24.op_Explicit(Hack.io.Util.Int24)~System.UInt32">
+            <summary>
+            
+            </summary>
+            <param name="x"></param>
+        </member>
+        <member name="M:Hack.io.Util.Int24.op_Explicit(System.Int64)~Hack.io.Util.Int24">
+            <summary>
+            
+            </summary>
+            <param name="x"></param>
+        </member>
+        <member name="M:Hack.io.Util.Int24.op_Explicit(Hack.io.Util.Int24)~System.Int64">
+            <summary>
+            
+            </summary>
+            <param name="x"></param>
+        </member>
+        <member name="M:Hack.io.Util.Int24.op_Explicit(System.UInt64)~Hack.io.Util.Int24">
+            <summary>
+            
+            </summary>
+            <param name="x"></param>
+        </member>
+        <member name="M:Hack.io.Util.Int24.op_Explicit(Hack.io.Util.Int24)~System.UInt64">
+            <summary>
+            
+            </summary>
+            <param name="x"></param>
+        </member>
+        <member name="T:Hack.io.Util.UInt24">
+            <summary>
+            I need this because Nintendo had this strange idea that using UInt24 is OK
             </summary>
         </member>
         <member name="F:Hack.io.Util.UInt24.BitMask">
@@ -62,11 +817,386 @@
             </summary>
             <param name="value"></param>
         </member>
+        <member name="M:Hack.io.Util.UInt24.op_Addition(Hack.io.Util.UInt24,Hack.io.Util.UInt24)">
+            <summary>
+            
+            </summary>
+            <param name="a"></param>
+            <param name="b"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Hack.io.Util.UInt24.op_Subtraction(Hack.io.Util.UInt24,Hack.io.Util.UInt24)">
+            <summary>
+            
+            </summary>
+            <param name="a"></param>
+            <param name="b"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Hack.io.Util.UInt24.op_Multiply(Hack.io.Util.UInt24,Hack.io.Util.UInt24)">
+            <summary>
+            
+            </summary>
+            <param name="a"></param>
+            <param name="b"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Hack.io.Util.UInt24.op_Division(Hack.io.Util.UInt24,Hack.io.Util.UInt24)">
+            <summary>
+            
+            </summary>
+            <param name="a"></param>
+            <param name="b"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Hack.io.Util.UInt24.op_Modulus(Hack.io.Util.UInt24,Hack.io.Util.UInt24)">
+            <summary>
+            
+            </summary>
+            <param name="a"></param>
+            <param name="b"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Hack.io.Util.UInt24.op_BitwiseAnd(Hack.io.Util.UInt24,Hack.io.Util.UInt24)">
+            <summary>
+            
+            </summary>
+            <param name="a"></param>
+            <param name="b"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Hack.io.Util.UInt24.op_BitwiseOr(Hack.io.Util.UInt24,Hack.io.Util.UInt24)">
+            <summary>
+            
+            </summary>
+            <param name="a"></param>
+            <param name="b"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Hack.io.Util.UInt24.op_ExclusiveOr(Hack.io.Util.UInt24,Hack.io.Util.UInt24)">
+            <summary>
+            
+            </summary>
+            <param name="a"></param>
+            <param name="b"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Hack.io.Util.UInt24.op_RightShift(Hack.io.Util.UInt24,System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="a"></param>
+            <param name="b"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Hack.io.Util.UInt24.op_LeftShift(Hack.io.Util.UInt24,System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="a"></param>
+            <param name="b"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Hack.io.Util.UInt24.op_OnesComplement(Hack.io.Util.UInt24)">
+            <summary>
+            
+            </summary>
+            <param name="a"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Hack.io.Util.UInt24.op_Increment(Hack.io.Util.UInt24)">
+            <summary>
+            
+            </summary>
+            <param name="a"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Hack.io.Util.UInt24.op_Decrement(Hack.io.Util.UInt24)">
+            <summary>
+            
+            </summary>
+            <param name="a"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Hack.io.Util.UInt24.op_Equality(Hack.io.Util.UInt24,Hack.io.Util.UInt24)">
+            <summary>
+            
+            </summary>
+            <param name="l"></param>
+            <param name="r"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Hack.io.Util.UInt24.op_Inequality(Hack.io.Util.UInt24,Hack.io.Util.UInt24)">
+            <summary>
+            
+            </summary>
+            <param name="l"></param>
+            <param name="r"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Hack.io.Util.UInt24.op_GreaterThan(Hack.io.Util.UInt24,Hack.io.Util.UInt24)">
+            <summary>
+            
+            </summary>
+            <param name="l"></param>
+            <param name="r"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Hack.io.Util.UInt24.op_LessThan(Hack.io.Util.UInt24,Hack.io.Util.UInt24)">
+            <summary>
+            
+            </summary>
+            <param name="l"></param>
+            <param name="r"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Hack.io.Util.UInt24.op_GreaterThanOrEqual(Hack.io.Util.UInt24,Hack.io.Util.UInt24)">
+            <summary>
+            
+            </summary>
+            <param name="l"></param>
+            <param name="r"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Hack.io.Util.UInt24.op_LessThanOrEqual(Hack.io.Util.UInt24,Hack.io.Util.UInt24)">
+            <summary>
+            
+            </summary>
+            <param name="l"></param>
+            <param name="r"></param>
+            <returns></returns>
+        </member>
         <member name="M:Hack.io.Util.UInt24.ToString">
             <summary>
             
             </summary>
             <returns></returns>
+        </member>
+        <member name="M:Hack.io.Util.UInt24.ToString(System.IFormatProvider)">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Hack.io.Util.UInt24.ToString(System.String)">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Hack.io.Util.UInt24.ToString(System.String,System.IFormatProvider)">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Hack.io.Util.UInt24.Equals(System.Object)">
+            <summary>
+            
+            </summary>
+            <param name="obj"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Hack.io.Util.UInt24.GetHashCode">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Hack.io.Util.UInt24.op_Explicit(System.Byte)~Hack.io.Util.UInt24">
+            <summary>
+            
+            </summary>
+            <param name="x"></param>
+        </member>
+        <member name="M:Hack.io.Util.UInt24.op_Explicit(Hack.io.Util.UInt24)~System.Byte">
+            <summary>
+            
+            </summary>
+            <param name="x"></param>
+        </member>
+        <member name="M:Hack.io.Util.UInt24.op_Explicit(System.SByte)~Hack.io.Util.UInt24">
+            <summary>
+            
+            </summary>
+            <param name="x"></param>
+        </member>
+        <member name="M:Hack.io.Util.UInt24.op_Explicit(Hack.io.Util.UInt24)~System.SByte">
+            <summary>
+            
+            </summary>
+            <param name="x"></param>
+        </member>
+        <member name="M:Hack.io.Util.UInt24.op_Explicit(System.Int16)~Hack.io.Util.UInt24">
+            <summary>
+            
+            </summary>
+            <param name="x"></param>
+        </member>
+        <member name="M:Hack.io.Util.UInt24.op_Explicit(Hack.io.Util.UInt24)~System.Int16">
+            <summary>
+            
+            </summary>
+            <param name="x"></param>
+        </member>
+        <member name="M:Hack.io.Util.UInt24.op_Explicit(System.UInt16)~Hack.io.Util.UInt24">
+            <summary>
+            
+            </summary>
+            <param name="x"></param>
+        </member>
+        <member name="M:Hack.io.Util.UInt24.op_Explicit(Hack.io.Util.UInt24)~System.UInt16">
+            <summary>
+            
+            </summary>
+            <param name="x"></param>
+        </member>
+        <member name="M:Hack.io.Util.UInt24.op_Explicit(Hack.io.Util.Int24)~Hack.io.Util.UInt24">
+            <summary>
+            
+            </summary>
+            <param name="x"></param>
+        </member>
+        <member name="M:Hack.io.Util.UInt24.op_Explicit(Hack.io.Util.UInt24)~Hack.io.Util.Int24">
+            <summary>
+            
+            </summary>
+            <param name="x"></param>
+        </member>
+        <member name="M:Hack.io.Util.UInt24.op_Explicit(System.Int32)~Hack.io.Util.UInt24">
+            <summary>
+            
+            </summary>
+            <param name="x"></param>
+        </member>
+        <member name="M:Hack.io.Util.UInt24.op_Explicit(Hack.io.Util.UInt24)~System.Int32">
+            <summary>
+            
+            </summary>
+            <param name="x"></param>
+        </member>
+        <member name="M:Hack.io.Util.UInt24.op_Explicit(System.UInt32)~Hack.io.Util.UInt24">
+            <summary>
+            
+            </summary>
+            <param name="x"></param>
+        </member>
+        <member name="M:Hack.io.Util.UInt24.op_Explicit(Hack.io.Util.UInt24)~System.UInt32">
+            <summary>
+            
+            </summary>
+            <param name="x"></param>
+        </member>
+        <member name="M:Hack.io.Util.UInt24.op_Explicit(System.Int64)~Hack.io.Util.UInt24">
+            <summary>
+            
+            </summary>
+            <param name="x"></param>
+        </member>
+        <member name="M:Hack.io.Util.UInt24.op_Explicit(Hack.io.Util.UInt24)~System.Int64">
+            <summary>
+            
+            </summary>
+            <param name="x"></param>
+        </member>
+        <member name="M:Hack.io.Util.UInt24.op_Explicit(System.UInt64)~Hack.io.Util.UInt24">
+            <summary>
+            
+            </summary>
+            <param name="x"></param>
+        </member>
+        <member name="M:Hack.io.Util.UInt24.op_Explicit(Hack.io.Util.UInt24)~System.UInt64">
+            <summary>
+            
+            </summary>
+            <param name="x"></param>
+        </member>
+        <member name="T:Hack.io.Util.MessageBoxManager">
+            <summary>
+            Used for custom message boxes
+            </summary>
+        </member>
+        <member name="T:Hack.io.Util.MessageBoxManager.CWPRETSTRUCT">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:Hack.io.Util.MessageBoxManager.CWPRETSTRUCT.lResult">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:Hack.io.Util.MessageBoxManager.CWPRETSTRUCT.lParam">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:Hack.io.Util.MessageBoxManager.CWPRETSTRUCT.wParam">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:Hack.io.Util.MessageBoxManager.CWPRETSTRUCT.message">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:Hack.io.Util.MessageBoxManager.CWPRETSTRUCT.hwnd">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:Hack.io.Util.MessageBoxManager.OK">
+            <summary>
+            OK text
+            </summary>
+        </member>
+        <member name="F:Hack.io.Util.MessageBoxManager.Cancel">
+            <summary>
+            Cancel text
+            </summary>
+        </member>
+        <member name="F:Hack.io.Util.MessageBoxManager.Abort">
+            <summary>
+            Abort text
+            </summary>
+        </member>
+        <member name="F:Hack.io.Util.MessageBoxManager.Retry">
+            <summary>
+            Retry text
+            </summary>
+        </member>
+        <member name="F:Hack.io.Util.MessageBoxManager.Ignore">
+            <summary>
+            Ignore text
+            </summary>
+        </member>
+        <member name="F:Hack.io.Util.MessageBoxManager.Yes">
+            <summary>
+            Yes text
+            </summary>
+        </member>
+        <member name="F:Hack.io.Util.MessageBoxManager.No">
+            <summary>
+            No text
+            </summary>
+        </member>
+        <member name="M:Hack.io.Util.MessageBoxManager.Register">
+            <summary>
+            Enables MessageBoxManager functionality
+            </summary>
+            <remarks>
+            MessageBoxManager functionality is enabled on current thread only.
+            Each thread that needs MessageBoxManager functionality has to call this method.
+            </remarks>
+        </member>
+        <member name="M:Hack.io.Util.MessageBoxManager.Unregister">
+            <summary>
+            Disables MessageBoxManager functionality
+            </summary>
+            <remarks>
+            Disables MessageBoxManager functionality on current thread only.
+            </remarks>
         </member>
         <member name="T:Hack.io.Util.ListEx">
             <summary>
@@ -109,6 +1239,35 @@
             <typeparam name="T"></typeparam>
             <param name="OriginalList"></param>
             <param name="sortref">The list to reference while sorting</param>
+            <returns></returns>
+        </member>
+        <member name="M:Hack.io.Util.ListEx.Equals``1(System.Collections.Generic.List{``0},System.Collections.Generic.List{``0})">
+            <summary>
+            Compares the contents of two lists to see if they match
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="left"></param>
+            <param name="right"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Hack.io.Util.ListEx.Equals``1(System.Collections.Generic.List{``0},System.Collections.Generic.List{``0},System.Func{``0,``0,System.Boolean})">
+            <summary>
+            Compares the contents of the two lists using a custom function
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="left"></param>
+            <param name="right"></param>
+            <param name="comparefunc"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Hack.io.Util.ListEx.GetHashCode``1(System.Collections.Generic.List{``0},System.Int32,System.Int32)">
+            <summary>
+            Gets a hash code from a List
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="list"></param>
+            <param name="starting"></param>
+            <param name="additive"></param>
             <returns></returns>
         </member>
         <member name="T:Hack.io.Util.StringEx">
@@ -235,10 +1394,82 @@
             <param name="max">Maximum value to clamp to</param>
             <returns>Max or Min, depending on Val</returns>
         </member>
+        <member name="M:Hack.io.Util.MathEx.Lerp(System.Byte,System.Byte,System.Single)">
+            <summary>
+            Lerp 2 bytes via a time
+            </summary>
+            <param name="min"></param>
+            <param name="max"></param>
+            <param name="t"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Hack.io.Util.MathEx.Lerp(System.Single,System.Single,System.Single)">
+            <summary>
+            Lerp 2 floats via a time
+            </summary>
+            <param name="min"></param>
+            <param name="max"></param>
+            <param name="t"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Hack.io.Util.MathEx.Lerp(System.Double,System.Double,System.Double)">
+            <summary>
+            Lerp 2 floats via a time
+            </summary>
+            <param name="min"></param>
+            <param name="max"></param>
+            <param name="t"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Hack.io.Util.MathEx.GetPercentOf(System.Single,System.Single,System.Single)">
+            <summary>
+            Gets the percent value of a given number. Usually used by Background Workers
+            </summary>
+            <param name="Current"></param>
+            <param name="Max"></param>
+            <param name="OutOf"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Hack.io.Util.MathEx.Scale(System.Double,System.Double,System.Double,System.Double,System.Double)">
+            <summary>
+            Scales a number between W and X to be between Y and Z
+            </summary>
+            <param name="valueIn"></param>
+            <param name="baseMin"></param>
+            <param name="baseMax"></param>
+            <param name="limitMin"></param>
+            <param name="limitMax"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Hack.io.Util.MathEx.GetDecimal(System.Double)">
+            <summary>
+            Returns the decimal part of a number
+            </summary>
+            <param name="number"></param>
+            <returns></returns>
+        </member>
         <member name="T:Hack.io.Util.BitmapEx">
             <summary>
             
             </summary>
+        </member>
+        <member name="M:Hack.io.Util.BitmapEx.ToByteArray(System.Drawing.Bitmap)">
+            <summary>
+            Converts a bitmap to a byte[]
+            </summary>
+            <param name="bitmap"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Hack.io.Util.BitmapEx.FromByteArray(System.Byte[],System.Int32,System.Int32,System.Int32,System.Drawing.Imaging.PixelFormat)">
+            <summary>
+            Creates a bitmap from a byte[] (TODO: TEST THIS)
+            </summary>
+            <param name="data"></param>
+            <param name="width"></param>
+            <param name="height"></param>
+            <param name="stride"></param>
+            <param name="format"></param>
+            <returns></returns>
         </member>
         <member name="M:Hack.io.Util.BitmapEx.ResizeImage(System.Drawing.Image,System.Int32,System.Int32,System.Drawing.Drawing2D.InterpolationMode)">
             <summary>
@@ -249,6 +1480,18 @@
             <param name="height">The height to resize to.</param>
             <param name="InterpolationMode"></param>
             <returns>The resized image.</returns>
+        </member>
+        <member name="M:Hack.io.Util.BitmapEx.Lerp(System.Drawing.Bitmap,System.Drawing.Bitmap,System.Int32,System.Int32,System.Single,System.Drawing.Drawing2D.InterpolationMode)">
+            <summary>
+            Generates a lerped bitmap. Useful for mipmapping
+            </summary>
+            <param name="imageA"></param>
+            <param name="imageB"></param>
+            <param name="width"></param>
+            <param name="height"></param>
+            <param name="t"></param>
+            <param name="interpolationMode"></param>
+            <returns></returns>
         </member>
         <member name="T:Hack.io.Util.GenericExtensions">
             <summary>
@@ -278,13 +1521,38 @@
             <param name="Reverse">If true, cycles from left to right instead of right to left</param>
             <param name="Values">The values to cycle</param>
         </member>
-        <member name="M:Hack.io.Util.GenericExtensions.Clamp``1(``0,``0,``0)">
+        <member name="M:Hack.io.Util.GenericExtensions.Equals``2(System.Collections.Generic.Dictionary{``0,``1},System.Collections.Generic.Dictionary{``0,``1})">
             <summary>
-            Math.Clamp doesn't exist for whatever reason
+            Compares the contents of two dictionaries
             </summary>
-            <param name="value">The value to clamp</param>
-            <param name="min">The Minimum value</param>
-            <param name="max">The Maximum value</param>
+            <typeparam name="TKey"></typeparam>
+            <typeparam name="TValue"></typeparam>
+            <param name="left"></param>
+            <param name="right"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Hack.io.Util.GenericExtensions.Multiply(System.Drawing.Size,System.Int32)">
+            <summary>
+            Multiplies both width and height by the same number
+            </summary>
+            <param name="size"></param>
+            <param name="scale"></param>
+        </member>
+        <member name="M:Hack.io.Util.GenericExtensions.Divide(System.Drawing.Size,System.Int32)">
+            <summary>
+            Divides both width and height by the same number
+            </summary>
+            <param name="size"></param>
+            <param name="scale"></param>
+        </member>
+        <member name="M:Hack.io.Util.GenericExtensions.NewICollection``2(``1,System.Int32)">
+            <summary>
+            Creates a new ICollection (Such as a <see cref="T:System.Collections.Generic.List`1"/>) with a specified value for every entry
+            </summary>
+            <typeparam name="Class"></typeparam>
+            <typeparam name="Type"></typeparam>
+            <param name="InitValue"></param>
+            <param name="Size"></param>
             <returns></returns>
         </member>
         <member name="T:Hack.io.FileStreamEx">
@@ -634,7 +1902,7 @@
         </member>
         <member name="M:Hack.io.StreamEx.WriteString(System.IO.Stream,System.String,System.Text.Encoding)">
             <summary>
-            Writes a string. String won't be null terminated
+            Writes a string. String will be NULL terminated
             </summary>
             <param name="FS"></param>
             <param name="String">String to write to the file</param>

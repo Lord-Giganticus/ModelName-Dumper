@@ -13,7 +13,7 @@ namespace ModelName_Counter
         {
             if (args.Length is 0) throw new ArgumentException();
             var filelist = new List<FileInfo>();
-            foreach (var arg in args.Where(s => new FileInfo(s).Exists && new FileInfo(s).Extension is ".txt"))
+            foreach (var arg in args.Where(s => new FileInfo(s).Exists && new FileInfo(s).Extension is ".txt" && !s.Contains(".count")))
             {
                 filelist.Add(new FileInfo(arg));
             }
