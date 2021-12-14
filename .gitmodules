@@ -4,3 +4,6 @@
 [submodule "Source/Byml.cs/SM3DW-Level-Porter"]
 	path = Source/Byml.cs/SM3DW-Level-Porter
 	url = https://github.com/Lord-Giganticus/SM3DW-Level-Porter.git
+[submodule "Source/ModuleName.Dumper/LordG.IO"]
+	path = Source/ModuleName.Dumper/LordG.IO
+	url = https://github.com/Lord-Giganticus/LordG.IO.git
