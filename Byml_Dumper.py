@@ -10,7 +10,7 @@ if os.getcwd() is not homedir:
 
 files = glob("*.szs")
 
-Sarc_cs = glob("*\\*.exe")[3]
+Sarc_cs = glob("*\\*.exe")[4]
 
 for file in files:
     subprocess.call(f'{Sarc_cs} {file}')
@@ -23,7 +23,7 @@ for file in files:
         subprocess.call(f'{Byml_cs} {file}')
         os.remove(file)
 
-    Dumper = glob("*\\*.exe")[2]
+    Dumper = glob("*\\*.exe")[3]
 
     files = glob("*.yml")
 
@@ -31,7 +31,7 @@ for file in files:
         subprocess.call(f'{Dumper} {file}')
         os.remove(file)
 
-    Counter = glob('*\\*.exe')[1]
+    Counter = glob('*\\*.exe')[2]
 
     files = glob("*.txt")
 
