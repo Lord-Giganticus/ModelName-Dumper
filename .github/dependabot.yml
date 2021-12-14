@@ -1,17 +1,7 @@
 version: 2
 updates:
   - package-ecosystem: "gitsubmodule"
-    directory: "/Source/Byml.cs"
-    schedule:
-      interval: "daily"
-      timezone: "America/Chicago"
-  - package-ecosystem: "gitsubmodule"
-    directory: "/Source/Sarc.cs"
-    schedule:
-      interval: "daily"
-      timezone: "America/Chicago"
-  - package-ecosystem: "gitsubmodule"
-    directory: "/Source/ModuleName.Dumper"
+    directory: "/"
     schedule:
       interval: "daily"
       timezone: "America/Chicago"
