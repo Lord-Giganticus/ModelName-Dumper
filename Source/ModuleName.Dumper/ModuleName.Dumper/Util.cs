@@ -35,7 +35,9 @@ namespace Byml.Dumper
         {
             var byml = pair.Value.GetByml();
             var data = byml.ToYaml();
-            return new KeyValuePair<string, string[]>(pair.Key, data.Split(new string[] { Environment.NewLine }, 0));
+            var name = pair.Key;
+            name = $"{name.ReverseSubstring(name.IndexOf("."))}.yml";
+            return new KeyValuePair<string, string[]>(name, data.Split(new string[] { Environment.NewLine }, 0));
         }
 
         public static KeyValuePair<string, string[]> GetYml(this FileInfo src)
@@ -163,9 +165,14 @@ namespace Byml.Dumper
             foreach (var pair in dict)
             {
                 var value = func.Invoke(pair);
-                res.Add(value.Key, value.Value);
+                res.Add(value);
             }
             return res;
+        }
+
+        public static void Add<TKey, TValue>(this Dictionary<TKey, TValue> dict, KeyValuePair<TKey, TValue> pair)
+        {
+            dict.Add(pair.Key, pair.Value);
         }
     }
 }
